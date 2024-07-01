@@ -8,6 +8,8 @@ namespace api.Interfaces
 {
     public interface ICategoryRepository
     {
-        Task<Category?> GetCategoryByIdAsync(int id);
+        Task<List<Category>> GetAllAsync();
+        Task<Category?> GetByIdAsync(int id);
+        Task<Category> CreateAsync(Category CategoryModel);
     }
 }

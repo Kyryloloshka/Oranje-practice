@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.Data;
 using api.Interfaces;
 using api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
 {
@@ -15,9 +16,19 @@ namespace api.Repository
         {
             _context = context;
         }
-        public async Task<Category?> GetCategoryByIdAsync(int categoryId)
+        public async Task<Category?> GetByIdAsync(int categoryId)
         {
             return await _context.Categories.FindAsync(categoryId);
+        }
+        public async Task<List<Category>> GetAllAsync()
+        {
+            return await _context.Categories.ToListAsync();
+        }
+        public async Task<Category> CreateAsync(Category categoryModel)
+        {
+            await _context.Categories.AddAsync(categoryModel);
+            await _context.SaveChangesAsync();
+            return categoryModel;
         }
     }
 }

@@ -49,7 +49,7 @@ namespace api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateProductDto productDto)
         {
             Console.WriteLine($"Received CreateProductDto: {productDto.Name}, CategoryId: {productDto.CategoryId}");
-            var category = await _categoryRepo.GetCategoryByIdAsync(productDto.CategoryId);
+            var category = await _categoryRepo.GetByIdAsync(productDto.CategoryId);
             if (category == null)
             {
                 return BadRequest($"Category with Id {productDto.CategoryId} does not exist.");
