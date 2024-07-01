@@ -20,7 +20,5 @@ namespace api.Data
         {
             
         }
-       
-       
     }
 }
