@@ -11,7 +11,6 @@ namespace api.Mappers
     {
         public static ProductDto ToProductDto(this Product product)
         {
-            Console.WriteLine($"Mapping Product to DTO: {product.Name}, CategoryId: {product.CategoryId}");
             return new ProductDto
             {
                 Id = product.Id,
@@ -23,28 +22,27 @@ namespace api.Mappers
             };
         }
 
-        public static Product ToProductCreateDto(this CreateProductDto product) 
+        public static Product ToProductFromCreateDto(this CreateProductDto product, int categoryId) 
         {
             return new Product
             {
                 Name = product.Name,
                 Price = product.Price,
                 Description = product.Description,
-                CategoryId = product.CategoryId,
+                CategoryId = categoryId,
                 ImageUrl = product.ImageUrl
             };
         }
 
-        public static Product ToProductFromUpdateDto(this CreateProductDto product) 
+        public static Product ToProductFromUpdateDto(this UpdateProductDto product, int categoryId) 
         {
             
-            Console.WriteLine($"Mapping DTO to Product: {product.Name}, CategoryId: {product.CategoryId}");
             return new Product
             {
                 Name = product.Name,
                 Price = product.Price,
                 Description = product.Description,
-                CategoryId = product.CategoryId,
+                CategoryId = categoryId,
                 ImageUrl = product.ImageUrl
             };
         }

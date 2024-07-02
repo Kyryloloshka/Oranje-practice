@@ -11,5 +11,6 @@ namespace api.Interfaces
         Task<List<Category>> GetAllAsync();
         Task<Category?> GetByIdAsync(int id);
         Task<Category> CreateAsync(Category CategoryModel);
+        Task<bool> CategoryExists(int id);
     }
 }

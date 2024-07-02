@@ -14,11 +14,9 @@ namespace api.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
         private readonly ICategoryRepository _categoryRepo;
-        public CategoryController(ApplicationDBContext context, ICategoryRepository categoryRepo)
+        public CategoryController(ICategoryRepository categoryRepo)
         {
-            _context = context;
             _categoryRepo = categoryRepo;
         }
 
@@ -27,10 +25,10 @@ namespace api.Controllers
         {
             var categories = await _categoryRepo.GetAllAsync();
             var categoriesDto = categories.Select(s => s.ToCategoryDto());
-            return Ok(categories);
+            return Ok(categoriesDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var category = await _categoryRepo.GetByIdAsync(id);

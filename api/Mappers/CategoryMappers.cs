@@ -15,15 +15,7 @@ namespace api.Mappers
             {
                 Id = category.Id,
                 Name = category.Name,
-                ProductIds = category.Products.Select(p => p.Id).ToList()
-            };
-        }
-
-        public static CreateCategoryDto ToCreateCategoryDto(this Category category)
-        {
-            return new CreateCategoryDto
-            {
-                Name = category.Name
+                Products = category.Products.Select(p => p.ToProductDto()).ToList()
             };
         }
 

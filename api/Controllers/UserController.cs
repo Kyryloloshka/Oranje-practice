@@ -26,7 +26,7 @@ namespace api.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public IActionResult GetById([FromRoute] int id)
         {
             var user = _context.Users.Find(id);

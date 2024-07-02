@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Dtos.Category;
 
 namespace api.Models
 {
@@ -13,8 +14,8 @@ namespace api.Models
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
         public string Description { get; set; } = string.Empty;
-        public int CategoryId { get; set; }
-        public Category Category { get; set; } = new Category();
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
     }
 }

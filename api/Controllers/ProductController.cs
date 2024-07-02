@@ -34,7 +34,7 @@ namespace api.Controllers
             return Ok(productsDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var product = await _productRepo.GetByIdAsync(id);
@@ -45,27 +45,23 @@ namespace api.Controllers
             return Ok(product.ToProductDto());
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateProductDto productDto)
+        [HttpPost("{categoryId:int}")]
+        public async Task<IActionResult> Create([FromRoute] int categoryId, [FromBody] CreateProductDto productDto)
         {
-            Console.WriteLine($"Received CreateProductDto: {productDto.Name}, CategoryId: {productDto.CategoryId}");
-            var category = await _categoryRepo.GetByIdAsync(productDto.CategoryId);
-            if (category == null)
+            if (!await _categoryRepo.CategoryExists(categoryId))
             {
-                return BadRequest($"Category with Id {productDto.CategoryId} does not exist.");
+                return BadRequest("Category does not exist");
             }
-
-            var productModel = productDto.ToProductFromUpdateDto();
+            var productModel = productDto.ToProductFromCreateDto(categoryId);
             await _productRepo.CreateAsync(productModel);
 
-            Console.WriteLine($"Returning created product: {productModel.Name}, CategoryId: {productModel.CategoryId}");
-            return CreatedAtAction(nameof(GetById), new { id = productModel.Id }, productModel.ToProductDto());
+            return CreatedAtAction(nameof(GetById), new { id = productModel }, productModel.ToProductDto());
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateProductDto updateDto)
+        [HttpPut("{id:int}/{categoryId:int}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateProductDto updateDto, [FromRoute] int categoryId)
         {
-            var product = await _productRepo.UpdateAsync(id, updateDto);
+            var product = await _productRepo.UpdateAsync(id, updateDto, categoryId);
             if (product == null)
             {
                 return NotFound();
@@ -73,13 +69,13 @@ namespace api.Controllers
             return Ok(product.ToProductDto());
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var product = await _productRepo.DeleteAsync(id);
             if (product == null)
             {
-                return NotFound();
+                return NotFound("Product does not exist");
             }
             return NoContent();
         }

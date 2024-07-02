@@ -27,13 +27,11 @@ namespace api.Repository
         }
         public async Task<Product> CreateAsync(Product productModel)
         {
-            Console.WriteLine($"Creating product in database: {productModel.Name}, CategoryId: {productModel.CategoryId}");
             await _context.Products.AddAsync(productModel);
             await _context.SaveChangesAsync();
-            Console.WriteLine($"Product created: {productModel.Name}, CategoryId: {productModel.CategoryId}");
             return productModel;
         }
-        public async Task<Product?> UpdateAsync(int id, UpdateProductDto productDto)
+        public async Task<Product?> UpdateAsync(int id, UpdateProductDto productDto, int categoryId)
         {
             var existingProduct = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
             if (existingProduct == null)
@@ -42,7 +40,7 @@ namespace api.Repository
             }
             existingProduct.Name = productDto.Name;
             existingProduct.Price = productDto.Price;
-            existingProduct.CategoryId = productDto.CategoryId;
+            existingProduct.CategoryId = categoryId;
             existingProduct.Description = productDto.Description;
             existingProduct.ImageUrl = productDto.ImageUrl;
 
