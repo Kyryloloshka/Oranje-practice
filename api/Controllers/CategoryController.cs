@@ -23,6 +23,9 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var categories = await _categoryRepo.GetAllAsync();
             var categoriesDto = categories.Select(s => s.ToCategoryDto());
             return Ok(categoriesDto);
@@ -31,6 +34,9 @@ namespace api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var category = await _categoryRepo.GetByIdAsync(id);
             if (category == null)
             {
@@ -42,6 +48,9 @@ namespace api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateCategoryDto categoryDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+                
             var categoryModel = categoryDto.ToCategoryFromCreateDto();
             await _categoryRepo.CreateAsync(categoryModel);
             return Ok(categoryModel.ToCategoryDto());

@@ -1,1 +1,10 @@
 api/bin/
+api/obj/
+*.suo
+*.user
+*.vspscc
+*.vssscc
+*.csproj.user
+*.publishsettings
+api/node_modules/
+api/bower_components/

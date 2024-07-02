@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Product;
+using api.Helpers;
 using api.Interfaces;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -17,9 +18,33 @@ namespace api.Repository
         {
             _context = context;
         }
-        public async Task<List<Product>> GetAllAsync()
+        public async Task<List<Product>> GetAllAsync(QueryObject query)
         {
-            return await _context.Products.ToListAsync();
+
+            var products = _context.Products.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(query.Name))
+            {
+                products = products.Where(p => p.Name.Contains(query.Name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.Description))
+            {
+                products = products.Where(p => p.Name.Contains(query.Description));
+            }
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                products = query.SortBy switch
+                {
+                    "name" => query.IsDecsending ? products.OrderByDescending(p => p.Name) : products.OrderBy(p => p.Name),
+                    "price" => query.IsDecsending ? products.OrderByDescending(p => p.Price) : products.OrderBy(p => p.Price),
+                    "category" => query.IsDecsending ? products.OrderByDescending(p => p.CategoryId) : products.OrderBy(p => p.CategoryId),
+                    _ => products.OrderBy(p => p.Id)
+                };
+            }
+
+            var skipNumber = (query.PageNumber - 1) * query.PageSize;
+
+            return await products.Skip(skipNumber).Take(query.PageSize).ToListAsync();
         }
         public async Task<Product?> GetByIdAsync(int id)
         {
