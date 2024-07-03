@@ -1,5 +1,7 @@
 api/bin/
 api/obj/
+api/obj/Debug/
+api/obj/*/
 *.suo
 *.user
 *.vspscc
