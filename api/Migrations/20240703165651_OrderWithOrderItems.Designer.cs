@@ -12,8 +12,8 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20240703143127_SeedRole")]
-    partial class SeedRole
+    [Migration("20240703165651_OrderWithOrderItems")]
+    partial class OrderWithOrderItems
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,13 +54,13 @@ namespace api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b654a01e-e03b-4bed-854e-4eee85034c55",
+                            Id = "22e9e5e9-2455-4530-9638-2ed6cac2b29f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "d5827771-69e3-4320-9395-5fe1bfb8416c",
+                            Id = "c88491e9-0d7c-489f-9565-72878e017e89",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -320,9 +320,6 @@ namespace api.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Risk")
-                        .HasColumnType("int");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -399,11 +396,9 @@ namespace api.Migrations
 
             modelBuilder.Entity("api.Models.Order", b =>
                 {
-                    b.HasOne("api.Models.User", "User")
-                        .WithMany()
+                    b.HasOne("api.Models.User", null)
+                        .WithMany("Orders")
                         .HasForeignKey("UserId1");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("api.Models.OrderItem", b =>
@@ -442,6 +437,11 @@ namespace api.Migrations
             modelBuilder.Entity("api.Models.Order", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("api.Models.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

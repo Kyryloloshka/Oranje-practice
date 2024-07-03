@@ -20,6 +20,11 @@ namespace api.Data
         {
             base.OnModelCreating(builder);
 
+            builder.Entity<Order>()
+                .HasMany(o => o.OrderItems)
+                .WithOne(oi => oi.Order)
+                .OnDelete(DeleteBehavior.Cascade);
+
             List<IdentityRole> roles = new List<IdentityRole>
             {
                 new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" },

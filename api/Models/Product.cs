@@ -7,6 +7,7 @@ using api.Dtos.Category;
 
 namespace api.Models
 {
+    [Table("Products")]
     public class Product
     {
         public int Id { get; set; }

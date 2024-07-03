@@ -8,6 +8,7 @@ namespace api.Models
 {
     public class User : IdentityUser
     {
-        public int Risk { get; set; }
+        public List<Order> Orders { get; set; } = [];
+        
     }
 }
