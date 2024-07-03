@@ -14,10 +14,6 @@ namespace api.Mappers
         {
             return new UserDto
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-                Orders = user.Orders
             };
         }
         

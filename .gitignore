@@ -8,3 +8,4 @@ api/obj/
 *.publishsettings
 api/node_modules/
 api/bower_components/
+api/.env
