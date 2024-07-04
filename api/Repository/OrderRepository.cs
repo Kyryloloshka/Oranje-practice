@@ -59,5 +59,10 @@ namespace api.Repository
             await _context.SaveChangesAsync();
             return existingOrder;
         }
+
+        public async Task<List<Order>> GetUserOrders(User user)
+        {
+            return await _context.Orders.Where(u => u.UserId == user.Id).ToListAsync();
+        }
     }
 }

@@ -65,7 +65,7 @@ namespace api.Controllers
             var productModel = productDto.ToProductFromCreateDto(categoryId);
             await _productRepo.CreateAsync(productModel);
 
-            return CreatedAtAction(nameof(GetById), new { id = productModel }, productModel.ToProductDto());
+            return CreatedAtAction(nameof(GetById), new { id = productModel.Id }, productModel.ToProductDto());
         }
 
         [HttpPut("{id:int}/{categoryId:int}")]

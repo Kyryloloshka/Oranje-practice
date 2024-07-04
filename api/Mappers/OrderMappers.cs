@@ -21,12 +21,14 @@ namespace api.Mappers
             };
         }
 
-        public static Order ToOrderFromCreateDto(this CreateOrderDto orderDto)
+        public static Order ToOrderFromCreateDto(this CreateOrderDto orderDto, User user)
         {
             return new Order
             {
-                UserId = orderDto.UserId,
+                UserId = user.Id,
+                OrderDate = DateTime.Now,
                 OrderItems = orderDto.OrderItems,
+                TotalAmount = orderDto.OrderItems.Sum(x => x.UnitPrice)
             };
         }
     }

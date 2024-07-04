@@ -64,7 +64,7 @@ namespace api.Repository
                 return null;
             }
             existingProduct.Name = productDto.Name;
-            existingProduct.Price = productDto.Price;
+            existingProduct.Price =  productDto.Price;
             existingProduct.CategoryId = categoryId;
             existingProduct.Description = productDto.Description;
             existingProduct.ImageUrl = productDto.ImageUrl;

@@ -1,0 +1,89 @@
+Date : 2024-07-03 20:19:12
+Directory : d:\progs\front\react_js\asp_projects\oranje\api
+Total : 46 files,  2255 codes, 9 comments, 399 blanks, all 2663 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         42 |      2,166 |          9 |        392 |      2,567 |
+| JSON     |          3 |         65 |          0 |          3 |         68 |
+| XML      |          1 |         24 |          0 |          4 |         28 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |         46 |      2,255 |          9 |        399 |      2,663 |
+| . (Files)                                                                                                 |          4 |        137 |          3 |         22 |        162 |
+| Controllers                                                                                               |          4 |        322 |          0 |         43 |        365 |
+| Data                                                                                                      |          1 |         36 |          0 |          5 |         41 |
+| Dtos                                                                                                      |         12 |        196 |          0 |         13 |        209 |
+| Dtos\Category                                                                                             |          2 |         28 |          0 |          2 |         30 |
+| Dtos\Order                                                                                                |          3 |         41 |          0 |          3 |         44 |
+| Dtos\Product                                                                                              |          3 |         70 |          0 |          3 |         73 |
+| Dtos\User                                                                                                 |          4 |         57 |          0 |          5 |         62 |
+| Extensions                                                                                                |          1 |         15 |          0 |          1 |         16 |
+| Helpers                                                                                                   |          1 |         16 |          0 |          1 |         17 |
+| Interfaces                                                                                                |          5 |         73 |          0 |          6 |         79 |
+| Mappers                                                                                                   |          4 |        124 |          0 |         11 |        135 |
+| Migrations                                                                                                |          3 |        976 |          6 |        267 |      1,249 |
+| Models                                                                                                    |          5 |         86 |          0 |          6 |         92 |
+| Properties                                                                                                |          1 |         41 |          0 |          1 |         42 |
+| Repository                                                                                                |          4 |        190 |          0 |         18 |        208 |
+| Service                                                                                                   |          1 |         43 |          0 |          5 |         48 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                  | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\progs\front\react_js\asp_projects\oranje\api\Controllers\CategoryController.cs                         | C#       |         52 |          0 |          7 |         59 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Controllers\OrderController.cs                            | C#       |         89 |          0 |         13 |        102 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Controllers\ProductController.cs                          | C#       |         87 |          0 |         12 |         99 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Controllers\UserController.cs                             | C#       |         94 |          0 |         11 |        105 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Data\ApplicationDBContext.cs                              | C#       |         36 |          0 |          5 |         41 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Category\CategoryDto.cs                              | C#       |         14 |          0 |          1 |         15 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Category\CreateCategoryDto.cs                        | C#       |         14 |          0 |          1 |         15 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Order\CreateOrderDto.cs                              | C#       |         13 |          0 |          1 |         14 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Order\OrderDto.cs                                    | C#       |         16 |          0 |          1 |         17 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Order\UpdateOrderDto.cs                              | C#       |         12 |          0 |          1 |         13 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Product\CreateProductDto.cs                          | C#       |         26 |          0 |          1 |         27 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Product\ProductDto.cs                                | C#       |         18 |          0 |          1 |         19 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\Product\UpdateProductDto.cs                          | C#       |         26 |          0 |          1 |         27 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\User\LoginDto.cs                                     | C#       |         15 |          0 |          2 |         17 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\User\NewUserDto.cs                                   | C#       |         13 |          0 |          1 |         14 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\User\RegisterDto.cs                                  | C#       |         18 |          0 |          1 |         19 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Dtos\User\UserDto.cs                                      | C#       |         11 |          0 |          1 |         12 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Extensions\ClaimsExtensions.cs                            | C#       |         15 |          0 |          1 |         16 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Helpers\QueryObject.cs                                    | C#       |         16 |          0 |          1 |         17 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Interfaces\ICategoryRepository.cs                         | C#       |         15 |          0 |          1 |         16 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Interfaces\IOrderItemRepository.cs                        | C#       |         10 |          0 |          2 |         12 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Interfaces\IOrderRepository.cs                            | C#       |         18 |          0 |          1 |         19 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Interfaces\IProductRepository.cs                          | C#       |         18 |          0 |          1 |         19 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Interfaces\ITokenService.cs                               | C#       |         12 |          0 |          1 |         13 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Mappers\CategoryMappers.cs                                | C#       |         28 |          0 |          3 |         31 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Mappers\OrderMappers.cs                                   | C#       |         31 |          0 |          2 |         33 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Mappers\ProductMappers.cs                                 | C#       |         46 |          0 |          4 |         50 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Mappers\UserMappers.cs                                    | C#       |         19 |          0 |          2 |         21 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Migrations\20240703165651_OrderWithOrderItems.Designer.cs | C#       |        333 |          2 |        115 |        450 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Migrations\20240703165651_OrderWithOrderItems.cs          | C#       |        312 |          3 |         37 |        352 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Migrations\ApplicationDBContextModelSnapshot.cs           | C#       |        331 |          1 |        115 |        447 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Models\Category.cs                                        | C#       |         15 |          0 |          1 |         16 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Models\Order.cs                                           | C#       |         18 |          0 |          1 |         19 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Models\OrderItem.cs                                       | C#       |         20 |          0 |          1 |         21 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Models\Product.cs                                         | C#       |         21 |          0 |          1 |         22 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Models\User.cs                                            | C#       |         12 |          0 |          2 |         14 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Program.cs                                                | C#       |         89 |          3 |         16 |        108 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Properties\launchSettings.json                            | JSON     |         41 |          0 |          1 |         42 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Repository\CategoryRepository.cs                          | C#       |         38 |          0 |          1 |         39 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Repository\OrderItemRepository.cs                         | C#       |         11 |          0 |          2 |         13 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Repository\OrderRepository.cs                             | C#       |         60 |          0 |          8 |         68 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Repository\ProductRepository.cs                           | C#       |         81 |          0 |          7 |         88 |
+| d:\progs\front\react_js\asp_projects\oranje\api\Service\TokenService.cs                                   | C#       |         43 |          0 |          5 |         48 |
+| d:\progs\front\react_js\asp_projects\oranje\api\api.csproj                                                | XML      |         24 |          0 |          4 |         28 |
+| d:\progs\front\react_js\asp_projects\oranje\api\appsettings.Development.json                              | JSON     |          8 |          0 |          1 |          9 |
+| d:\progs\front\react_js\asp_projects\oranje\api\appsettings.json                                          | JSON     |         16 |          0 |          1 |         17 |
+| Total                                                                                                     |          |      2,255 |          9 |        399 |      2,663 |
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -8,7 +8,6 @@ namespace api.Dtos.Order
 {
     public class CreateOrderDto
     {
-        public int UserId { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; } = [];
     }
 }
