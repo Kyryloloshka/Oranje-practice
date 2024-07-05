@@ -1,0 +1,44 @@
+@use "sass:math";
+// Адаптивне значення
+@mixin adaptiveValue($property, $startSize, $minSize, $type: 1) {
+  $addSize: $startSize - $minSize;
+
+  @if $type ==1 {
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$containerWidth + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - 320px) / #{$containerWidth - 320})
+      );
+    }
+  } @else if $type ==2 {
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$containerWidth + px}) {
+      #{$property}: calc(
+        #{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  } @else {
+    #{$property}: calc(
+      #{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+    );
+  }
+}
+
+// To %
+@function prc($pxOne, $pxTwo) {
+  $result: math.div($pxOne, $pxTwo) * 100%;
+  @return $result;
+}
+
+@function rem($px) {
+  $result: math.div($px, 14) + rem;
+  @return $result;
+}
+
+@function em($px, $fn: 14) {
+  $result: math.div($px, $fn) + em;
+  @return $result;
+}
