@@ -11,3 +11,40 @@ api/obj/*/
 api/node_modules/
 api/bower_components/
 api/.env
+.VSCodeCounter/
+.VSCodeCounter/*
+
+# dependencies
+front/node_modules
+front/.pnp
+front/.pnp.js
+front/.yarn/install-state.gz
+
+# testing
+front/coverage
+
+# next.js
+front/.next/
+front/out/
+
+# production
+front/build
+
+# misc
+front/.DS_Store
+front/*.pem
+
+# debug
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
