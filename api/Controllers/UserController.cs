@@ -92,7 +92,8 @@ namespace api.Controllers
                     new NewUserDto{
                         UserName = user.UserName, 
                         Email = user.Email,
-                        Token = _tokenService.CreateToken(user)
+                        Token = _tokenService.CreateToken(user),
+                        Roles = await _userManager.GetRolesAsync(user)
                     }
                 );
             }

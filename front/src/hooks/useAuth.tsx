@@ -46,13 +46,15 @@ export const UserProvider = ({ children }: Props) => {
       .then((res) => {
         if (res) {
           localStorage.setItem("token", res?.data.token);
+          console.log(res?.data);
           const userObj = {
-            userName: res?.data.username,
+            username: res?.data.userName,
             email: res?.data.email,
+            roles: res?.data.roles,
           };
           localStorage.setItem("user", JSON.stringify(userObj));
-          setToken(res?.data.token!);
-          setUser(userObj!);
+          setToken(res?.data.token);
+          setUser(userObj);
           toast.success("Login Success!");
           router.push("/");
         }
@@ -66,12 +68,14 @@ export const UserProvider = ({ children }: Props) => {
         if (res) {
           localStorage.setItem("token", res?.data.token);
           const userObj = {
-            userName: res?.data.username,
+            username: res?.data.userName,
             email: res?.data.email,
+            roles: res?.data.roles,
           };
+          console.log(userObj);
           localStorage.setItem("user", JSON.stringify(userObj));
-          setToken(res?.data.token!);
-          setUser(userObj!);
+          setToken(res?.data.token);
+          setUser(userObj);
           toast.success("Login Success!");
           router.push("/");
         }

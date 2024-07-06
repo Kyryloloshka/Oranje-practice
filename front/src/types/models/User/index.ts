@@ -1,10 +1,14 @@
-export type UserProfileToken = {
-  username: string;
-  email: string;
-  token: string;
-}
+export type Roles = ("Admin" | "User")[];
 
-export type UserProfile = {
+export type UserProfileToken = {
   userName: string;
   email: string;
+  token: string;
+  roles: Roles;
+};
+
+export type UserProfile = {
+  username: string;
+  email: string;
+  roles: Roles;
 };

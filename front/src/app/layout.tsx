@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Wrapper from "@/components/Wrapper";
 import Header from "@/components/Header";
+import StoreProvider from "@/StoreProvider";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
 
@@ -22,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Wrapper>
-          <Header />
-          {children}
-        </Wrapper>
-        <ToastContainer />
+          <Wrapper>
+            <Header />
+            {children}
+          </Wrapper>
+          <ToastContainer />
       </body>
     </html>
   );
