@@ -16,8 +16,11 @@ const Header = () => {
   const handleLogin = () => {
     router.push("/login");
   };
+  const shouldShowHeader = !noHeaderPaths.some((path) =>
+    pathname.startsWith(path)
+  );
   return (
-    !noHeaderPaths.includes(pathname) && (
+    shouldShowHeader && (
       <header className="bg-gray-100">
         <div className="header__container flex justify-between items-center min-h-[60px] gap-12">
           <div className="font-bold text-xl text-primary">Oranje</div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Product } from "@/types/models/Product";
 import Rating from "../Rating";
+import { ShoppingBasketIcon } from "lucide-react";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -21,7 +22,9 @@ const ProductCard = ({ product }: { product: Product }) => {
           style={{ objectFit: "contain" }}
           fill
           sizes="300px"
-          src={"https://static7.depositphotos.com/1002351/792/i/450/depositphotos_7926477-stock-photo-new-potato.jpg"}
+          src={
+            "https://static7.depositphotos.com/1002351/792/i/450/depositphotos_7926477-stock-photo-new-potato.jpg"
+          }
           alt={product.name}
           priority={true}
         />
@@ -53,7 +56,9 @@ const ProductCard = ({ product }: { product: Product }) => {
           ${product.price}
         </p>
         {/* )} */}
-        <Button className="_icon-cart text-light-4 text-2xl bg-primary-500 hover:bg-primary-600 hover:text-light-2 hover:shadow-xl transition duration-300"></Button>
+        <Button className="text-light-4 text-2xl bg-primary-500 hover:bg-primary-600 hover:text-light-2 hover:shadow-xl transition duration-300 rounded-[5px]">
+          <ShoppingBasketIcon className="w-6 h-6" />
+        </Button>
       </div>
     </div>
   );
